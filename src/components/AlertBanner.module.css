@@ -1,0 +1,110 @@
+.banner {
+  position: fixed;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-16px);
+  z-index: 50;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  width: min(560px, calc(100vw - 40px));
+}
+
+.banner.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: all;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: rgba(0, 0, 0, 0.88);
+  border: 1px solid var(--alert-color);
+  border-left-width: 3px;
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--alert-color);
+  opacity: 0.06;
+}
+
+.icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px var(--alert-color));
+  animation: pulse 1.5s ease infinite;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--alert-color);
+  text-shadow: 0 0 10px var(--alert-color);
+}
+
+.message {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.88);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dismiss {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 6px 10px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+  line-height: 1;
+  border-radius: 2px;
+}
+
+.dismiss:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.5);
+}
+
+.progress {
+  height: 1px;
+  background: var(--alert-color);
+  opacity: 0.5;
+  animation: shrink 12s linear forwards;
+  transform-origin: left;
+}
+
+@keyframes shrink {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}

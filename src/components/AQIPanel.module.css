@@ -1,0 +1,87 @@
+.panel {
+  background: rgba(0, 0, 0, 0.62);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid var(--aqi-color, rgba(255,255,255,0.15));
+  padding: 16px 18px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 3px 10px;
+  border: 1px solid;
+  color: var(--aqi-color);
+  text-shadow: 0 0 10px currentColor;
+}
+
+.barTrack {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.barFill {
+  height: 100%;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aqiNum {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--aqi-color);
+  text-shadow: 0 0 8px var(--aqi-color);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.pollCell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pollLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+}
+
+.pollValue {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.pollUnit {
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  margin-left: 2px;
+}
